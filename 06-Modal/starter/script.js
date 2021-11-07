@@ -5,7 +5,11 @@ const overlay = document.querySelector('.overlay');
 const btnOpenModal = document.querySelectorAll('.show-modal');
 const btnCloseModal = document.querySelector('.close-modal');
 
-console.log(btnOpenModal);
+// open Modal window fuction
+const openModal = function () {
+  modal.classList.remove('hidden');
+  overlay.classList.remove('hidden');
+};
 
 // function closes Modal window
 const closeModal = function () {
@@ -15,11 +19,7 @@ const closeModal = function () {
 
 for (let i = 0; i < btnOpenModal.length; i++) {
   console.log(btnOpenModal[i]);
-  btnOpenModal[i].addEventListener('click', function () {
-    console.log('Button Clicked');
-    modal.classList.remove('hidden'); // remove hidden attribute from class
-    overlay.classList.remove('hidden');
-  });
+  btnOpenModal[i].addEventListener('click', openModal);
 }
 
 btnCloseModal.addEventListener('click', closeModal); // call function
