@@ -17,14 +17,14 @@ const closeModal = function () {
   overlay.classList.add('hidden');
 };
 
+const escPressed = function (e) {
+  if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeModal();
+};
+
 for (let i = 0; i < btnOpenModal.length; i++)
   btnOpenModal[i].addEventListener('click', openModal);
 
 btnCloseModal.addEventListener('click', closeModal); // call function
 overlay.addEventListener('click', closeModal);
 
-document.addEventListener('keydown', function (e) {
-  if (e.key === 'Escape') {
-    if (!modal.classList.contains('hidden')) closeModal();
-  }
-});
+document.addEventListener('keydown', escPressed);
